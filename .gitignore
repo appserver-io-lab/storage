@@ -1,0 +1,12 @@
+/.idea
+/.buildpath
+/.project
+/.settings
+.DS_Store
+._.DS_Store
+vendor
+composer.lock
+composer.phar
+build.properties
+.CHANGELOG.md.html
+.README.md.html
