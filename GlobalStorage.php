@@ -164,7 +164,7 @@ class GlobalStorage extends \Thread
     }
 
     /**
-     * Introduce a magic __call function to delegate all method to the internal
+     * Introduce a magic __call function to delegate all methods to the internal
      * execution functionality. If you hit a Method which is not available in executor
      * logic, it will throw an exception as you would get a fatal error if you want to call
      * a function on undefined object.
