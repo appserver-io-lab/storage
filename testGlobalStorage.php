@@ -17,7 +17,10 @@ class Usage extends \Thread
             $tempStorage["asdf"] = 'asdf';
             GlobalStorage::getInstance()->free($tempStorageName);
 
-            $this->storage["test"] = microtime(true);
+            $othersStorage = GlobalStorage::getInstance()->find('ASDFASDF222');
+            $othersStorage[$this->getThreadId()] = $this->getThreadId() . ' was here';
+            
+            $this->storage["threadId"] = $this->getThreadId();
         } catch (\Exception $e) {
             die($e);
         }
@@ -25,6 +28,9 @@ class Usage extends \Thread
 }
 
 GlobalStorage::init();
+
+GlobalStorage::getInstance()->alloc("ASDFASDF111");
+GlobalStorage::getInstance()->alloc("ASDFASDF222");
 
 $t = new \Usage();
 
@@ -37,8 +43,13 @@ for ($i = 1; $i <= 10; $i++) {
     $u[$i]->join();
 }
 
-GlobalStorage::getInstance()->alloc("ASDFASDF111");
-GlobalStorage::getInstance()->alloc("ASDFASDF222");
 GlobalStorage::getInstance()->free("ASDFASDF111");
 
 var_dump(GlobalStorage::getInstance());
+
+// shutdown GlobalStorage
+GlobalStorage::getInstance()->shutdown();
+
+var_dump(GlobalStorage::getInstance());
+
+
