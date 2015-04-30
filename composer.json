@@ -1,0 +1,13 @@
+{
+	"name" : "storage-lab",
+	"authors" : [{
+			"name" : "Johann Zelger",
+			"email" : "jz@appserver.io",
+			"homepage" : "http://www.appserver.io",
+			"role" : "Developer"
+		}
+	],
+	"support" : {
+		"email" : "jz@appserver.io"
+	}
+}
